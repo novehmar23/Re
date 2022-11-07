@@ -4,6 +4,7 @@ import { AssignmentsTableComponent } from 'src/app/components/assignments-table/
 import { BugFormComponent } from 'src/app/components/bug-form/bug-form.component';
 import { FilterBugsComponent } from 'src/app/components/tester/filter-bugs/filter-bugs.component';
 import { TesterComponent } from './tester.component';
+import { BugClassifyFormComponent } from 'src/app/components/bug-classify-form/bug-classify-form.component';
 
 const routes: Routes = [
   {
@@ -12,26 +13,30 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'bugs'
+        redirectTo: 'bugs',
       },
       {
         path: 'bugs',
-        component: FilterBugsComponent
+        component: FilterBugsComponent,
       },
       {
         path: 'bug',
-        component: BugFormComponent
+        component: BugFormComponent,
       },
       {
         path: 'assignments',
-        component: AssignmentsTableComponent
-      }
-    ]
-  }
-]
+        component: AssignmentsTableComponent,
+      },
+      {
+        path: 'bug/classify',
+        component: BugClassifyFormComponent,
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TesterRoutingModule { }
+export class TesterRoutingModule {}

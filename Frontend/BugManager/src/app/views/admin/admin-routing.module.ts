@@ -14,6 +14,7 @@ import { TestersProjectComponent } from 'src/app/components/admin/tester-project
 import { AssignmentsTableComponent } from 'src/app/components/assignments-table/assignments-table.component';
 import { AssignmentsWithCreateComponent } from 'src/app/components/admin/assignments-with-create/assignments-with-create.component';
 import { CreateAssignmentComponent } from 'src/app/components/admin/create-assignment/create-assignment.component';
+import { BugClassifyFormComponent } from 'src/app/components/bug-classify-form/bug-classify-form.component';
 
 const routes: Routes = [
   {
@@ -22,63 +23,66 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'bugs'
+        redirectTo: 'bugs',
       },
       {
         path: 'bugs',
-        component: BugsComponent
+        component: BugsComponent,
       },
       {
         path: 'add-user',
-        component: CreateUserComponent
+        component: CreateUserComponent,
       },
       {
         path: 'projects',
-        component: ProjectsComponent
+        component: ProjectsComponent,
       },
       {
         path: 'devs-scoreboard',
-        component: DevsScoreboardComponent
+        component: DevsScoreboardComponent,
       },
       {
         path: 'bug-import-classic',
-        component: ClassicImportComponent
+        component: ClassicImportComponent,
       },
       {
         path: 'bug-import-custom',
-        component: CustomImportComponent
-      }
-      ,
+        component: CustomImportComponent,
+      },
       {
         path: 'bug',
-        component: BugFormComponent
+        component: BugFormComponent,
       },
       {
         path: 'project/devs',
-        component: DevsProjectComponent
+        component: DevsProjectComponent,
       },
       {
         path: 'project/testers',
-        component: TestersProjectComponent
+        component: TestersProjectComponent,
       },
       {
         path: 'project',
-        component: CreateProjectComponent
+        component: CreateProjectComponent,
       },
       {
         path: 'assignments',
-        component: AssignmentsWithCreateComponent
+        component: AssignmentsWithCreateComponent,
       },
       {
         path: 'assignment',
-        component: CreateAssignmentComponent
-      }
-    ]
-  }
+        component: CreateAssignmentComponent,
+      },
+      {
+        path: 'bug/classify',
+        component: BugClassifyFormComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

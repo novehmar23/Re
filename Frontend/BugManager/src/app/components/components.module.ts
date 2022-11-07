@@ -26,14 +26,10 @@ import { TestersProjectComponent } from './admin/tester-project/tester-project.c
 import { AssignmentsTableComponent } from './assignments-table/assignments-table.component';
 import { AssignmentsWithCreateComponent } from './admin/assignments-with-create/assignments-with-create.component';
 import { CreateAssignmentComponent } from './admin/create-assignment/create-assignment.component';
+import { BugClassifyFormComponent } from './bug-classify-form/bug-classify-form.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgbModule,
-    AngularMaterialModule,
-  ],
+  imports: [CommonModule, RouterModule, NgbModule, AngularMaterialModule],
   declarations: [
     GenericTableComponent,
     MessageComponent,
@@ -58,13 +54,14 @@ import { CreateAssignmentComponent } from './admin/create-assignment/create-assi
     AssignmentsTableComponent,
     AssignmentsWithCreateComponent,
     CreateAssignmentComponent,
+    BugClassifyFormComponent,
   ],
   exports: [
     MessageComponent,
     GenericFormComponent,
     GenericTableComponent,
     DeleteDialogComponent,
-    NavComponent
-  ]
+    NavComponent,
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
