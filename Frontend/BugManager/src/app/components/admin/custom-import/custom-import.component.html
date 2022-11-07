@@ -1,0 +1,45 @@
+<app-generic-form title="Import Bugs - Custom" [showCancelButton]="showCancelButton" [form]="form"
+  [infoMessage]="infoMessage" (save)="save()" [loading]="loading">
+
+  <form [formGroup]="form" (keydown.enter)="save()">
+    <p>Please select the importer below</p>
+
+    <mat-form-field appearance="fill" class=full-width>
+      <mat-label>Choose importer</mat-label>
+      <mat-select [formControl]="selectedImporterControl" required (selectionChange)="updateSelectedImported()">
+        <mat-option>None</mat-option>
+        <mat-option [value]="option" *ngFor="let option of importers">{{ option.importerName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ng-container *ngIf="importer != null">
+      <!-- String parameter input -->
+      <ng-container *ngFor="let param of importer.params">
+        <p>{{param.name}}</p>
+        <ng-container *ngIf="param.type == paramTypes.String">
+          <mat-form-field class=full-width appearance="fill">
+            <mat-label>Enter {{param.name.toLowerCase()}}</mat-label>
+            <input matInput [(ngModel)]="param.value" formControlName="{{param.name}}" required>
+          </mat-form-field>
+
+        </ng-container>
+
+        <!-- Integer parameter input -->
+        <ng-container *ngIf="param.type == paramTypes.Integer">
+          <mat-form-field class=full-width appearance="fill">
+            <mat-label>Enter {{param.name.toLowerCase()}} (Numbers only)</mat-label>
+            <input matInput type="number" [(ngModel)]="param.valueOriginType" formControlName="{{param.name}}" required>
+          </mat-form-field>
+
+        </ng-container>
+
+
+      </ng-container>
+    </ng-container>
+  </form>
+  <p>For the original xml bug importer please go to <a title="Classic bug importation page"
+      [routerLink]="['../bug-import-classic']">Bug Import
+      Classic</a>
+  </p>
+</app-generic-form>

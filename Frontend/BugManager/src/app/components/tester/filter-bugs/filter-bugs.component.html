@@ -1,0 +1,33 @@
+<form class="example-form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+  <h1 class=mat-headline>Fliter bugs: </h1>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Enter Bug number</mat-label>
+    <input type="number" matInput placeholder="Ex. 2" [(ngModel)]="filters.id" formControlName="id" required="false"
+      (change)="applyFilter()">
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Enter Bug Name</mat-label>
+    <input matInput placeholder="Ex. WebApi not woring" [(ngModel)]="filters.bugName" formControlName="bugName"
+      required="false" (change)="applyFilter()">
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Enter Project Name</mat-label>
+    <input matInput placeholder="Ex. New Website project" [(ngModel)]="filters.projectName"
+      formControlName="projectName" required="false" (change)="applyFilter()">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class=full-width>
+    <mat-label>Choose status</mat-label>
+    <mat-select [(value)]="filters.status" (selectionChange)="applyFilter()">
+      <mat-option [value]="option.value" *ngFor="let option of selectionOptions">{{ option.viewValue }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="clearFilter()">Clear filters
+  </button>
+</form>
+
+<app-bugs [dataSource]="dataSource" (sendBugs)="sendBugs($event)">
+</app-bugs>

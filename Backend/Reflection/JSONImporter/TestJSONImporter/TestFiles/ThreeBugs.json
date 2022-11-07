@@ -1,0 +1,29 @@
+[
+  {
+    "Name": "Bug1",
+    "Description": "This is the first bug from the json",
+    "Version": "1.00",
+    "IsActive": true,
+    "ProjectId": 3,
+    "ProjectName": "The Project",
+    "CompletedById": null,
+    "Time": 100
+  },
+  {
+    "Name": "Bug2",
+    "Description": "This is the second bug from the json",
+    "Version": "2.2",
+    "IsActive": false,
+    "ProjectId": 5,
+    "ProjectName": "The Project Revange",
+    "CompletedById": 2,
+    "Time": 200
+  },
+  {
+    "Name": "Third Bug",
+    "IsActive": true,
+    "ProjectId": 5,
+    "ProjectName": "The Project Revange",
+    "Time": 350
+  }
+]

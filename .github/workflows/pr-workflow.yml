@@ -1,0 +1,49 @@
+name: PR_checks
+on:
+  pull_request:
+    branches: [ "develop", "main" ]
+
+jobs:
+  Backend_pipeline:
+    name: Backend checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Backend/WebAPI
+    strategy:
+      matrix:
+        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build      
+      - name: Test
+        run: dotnet test
+
+  Frontend_pipeline:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Frontend/BugManager
+    strategy:
+      matrix:
+        node: [ 14, 16, 18 ]
+    name: Frontend checks ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run-script build
+      - name: Check vulnerabilities
+        run: npm audit fix

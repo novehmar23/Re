@@ -1,0 +1,24 @@
+<mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ">
+  <ng-container *ngFor="let col of columns">
+    <ng-container matColumnDef="{{col.property}}">
+      <th mat-header-cell *matHeaderCellDef> {{col.header}} </th>
+      <td *matCellDef="let element">
+
+        <ng-container *ngIf="col.type == columnsTypes.Object">
+          {{col.display(element[col.property])}}
+        </ng-container>
+
+        <ng-container *ngIf="col.type == columnsTypes.Button">
+          <button (click)="buttonsActions.get(col.property)?.onClick(element)" mat-flat-button
+            color={{buttonsActions.get(col.property)?.color(element)}}>
+            {{buttonsActions.get(col.property)?.text(element)}}</button>
+        </ng-container>
+      </td>
+    </ng-container>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </tr>
+</table>

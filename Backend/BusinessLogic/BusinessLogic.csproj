@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BugParser\BugParser.csproj" />
+    <ProjectReference Include="..\BusinessLogicInterfaces\BusinessLogicInterfaces.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\DTO\DTO.csproj" />
+    <ProjectReference Include="..\ExtensibleBugImporter\CustomBugImporter.csproj" />
+    <ProjectReference Include="..\RepositoryInterfaces\RepositoryInterfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CustomBugImportation">
+      <HintPath>..\Reflection\CustomBugImportation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

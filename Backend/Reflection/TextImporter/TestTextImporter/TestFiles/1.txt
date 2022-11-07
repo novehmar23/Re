@@ -1,0 +1,1 @@
+Nombre del Proyecto 1         1   Error en el envío de correo                                 El error se produce cuando el usuario no tiene un correo asignado.                                                                                    1.0       123  

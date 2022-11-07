@@ -1,0 +1,32 @@
+.center-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+h2{
+  text-align: center;
+  margin-top: 5%;
+}
+.full-width {
+  width: 100%;
+}
+
+button{
+  text-align: center ;
+  margin: auto;
+  display: block;
+}
+
+mat-spinner{
+  text-align: center ;
+  margin:  auto;
+  margin-top:  1em;
+  display: block;
+}
+
+app-message{
+  text-align: center;
+}

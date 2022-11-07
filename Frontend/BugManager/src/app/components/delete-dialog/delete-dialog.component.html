@@ -1,0 +1,6 @@
+<h1 mat-dialog-title>Are you sure you want to delete it?</h1>
+<div id="content" mat-dialog-content>This action cannot be reverted.</div>
+<div mat-dialog-actions>
+  <button mat-button id="delete" [mat-dialog-close]="true" color="warn">Delete</button>
+  <button mat-button id="cancel" [mat-dialog-close]="false" cdkFocusInitial>Cancel</button>
+</div>

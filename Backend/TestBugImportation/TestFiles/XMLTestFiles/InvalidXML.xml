@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+	<Proyecto>
+		Nombre del Proyecto
+			</Id>
+<Empresa1>
+	<Bugs>
+			<Id>
+				1
+				1
+				1
+			</Id>
+				Error en el envío de correo
+			<Descripcion>
+			</Descripcion>
+			</Nombre>
+			</Nombre>
+			</Nombre>
+			</Nombre>
+			<Version>
+				1.0
+			</Version>
+			<Estado>
+			<Nombre>
+				Activo
+			</Estado>
+		</Bug>
+		<Bug>
+			<Id>
+				2
+			<Nombre>
+			<Version>
+				Error en el envío de correo 2
+			</Nombre>
+</Empresa1>
+			<Descripcion>
+				El error se produce cuando el usuario no tiene un correo asignado 2
+			</Descripcion>
+		</Bug>
+				1.0
+			</Version>
+		<Bug>
+			<Estado>
+				Activo
+			</Estado>
+	</Bugs>

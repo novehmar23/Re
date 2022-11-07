@@ -1,0 +1,37 @@
+<app-generic-form title="Create new assignment"  [form]="form"
+  [infoMessage]="infoMessage" (save)="save()" [loading]="loading">
+
+  <form [formGroup]="form" (keydown.enter)="save()">
+
+    <mat-form-field appearance="fill" class=full-width>
+        <mat-label>Choose project</mat-label>
+        <mat-select formControlName="project" required [(ngModel)]="selectedProjectId">
+          <mat-option [value]="option.id" *ngFor="let option of projects">{{ option.name }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class=full-width appearance="fill">
+      <mat-label>Enter assignment name</mat-label>
+      <input maxlength="60" matInput [(ngModel)]="assignment.name" formControlName="name" required placeholder="Ex. assignment 1">
+      <mat-hint align="end">{{assignment.name.length}} / 60</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class=full-width >
+      <mat-label>Cost</mat-label>
+      <input matInput [(ngModel)]="assignment.cost" formControlName="cost" type="number" min="1" max="999" required placeholder="1">
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>/hr</span>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class=full-width >
+        <mat-label>Time</mat-label>
+        <input matInput [(ngModel)]="assignment.time" formControlName="time" type="number" min="1" max="999" required placeholder="1">
+        <span matSuffix>hs</span>
+      </mat-form-field>
+
+
+
+  </form>
+
+</app-generic-form>

@@ -1,0 +1,52 @@
+<app-generic-form title="Create new user" [showCancelButton]="showCancelButton" [form]="form"
+  [infoMessage]="infoMessage" (save)="save()" [loading]="loading">
+
+  <form [formGroup]="form" (keydown.enter)="save()">
+
+    <mat-form-field class=full-width appearance="fill">
+      <mat-label>Enter username</mat-label>
+      <input matInput [(ngModel)]="user.username" formControlName="username" required placeholder="Ex. johnSmith">
+    </mat-form-field>
+
+    <mat-form-field class=full-width appearance="fill">
+      <mat-label>Enter name</mat-label>
+      <input matInput [(ngModel)]="user.name" formControlName="name" required placeholder="Ex. John">
+    </mat-form-field>
+
+    <mat-form-field class=full-width appearance="fill">
+      <mat-label>Enter lastame</mat-label>
+      <input matInput [(ngModel)]="user.lastname" formControlName="lastname" required placeholder="Ex. Smith">
+    </mat-form-field>
+
+    <mat-form-field class=full-width appearance="fill">
+      <mat-label>Enter email</mat-label>
+      <input matInput [(ngModel)]="user.email" formControlName="email" required placeholder="Ex. john@example.com">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class=full-width>
+      <mat-label>Enter password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="user.password" formControlName="password"
+        required>
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class=full-width>
+      <mat-label>Choose role</mat-label>
+      <mat-select [(value)]="role">
+        <mat-option [value]="option.value" *ngFor="let option of roles">{{ option.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class=full-width *ngIf="role == 'dev' || role == 'tester'">
+      <mat-label>Cost</mat-label>
+      <input matInput [(ngModel)]="user.cost" formControlName="cost" type="number" min="1" max="999" required placeholder="1">
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>/hr</span>
+    </mat-form-field>
+
+  </form>
+
+</app-generic-form>

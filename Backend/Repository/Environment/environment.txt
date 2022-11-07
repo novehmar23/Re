@@ -1,0 +1,1 @@
+CONNECTION_STRING="Server=DESKTOP-6GSRH4E\SQLEXPRESS;Database=DBObligatorio;Trusted_Connection=True;MultipleActiveResultSets=True;"

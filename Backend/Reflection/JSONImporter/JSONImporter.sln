@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONImporter", "JSONImporter\JSONImporter.csproj", "{3A7CA8F1-9F0E-4566-A7F4-475983C54BB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestJSONImporter", "TestJSONImporter\TestJSONImporter.csproj", "{7305A12B-DE83-49F8-A79F-4FC0AC9B71BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A7CA8F1-9F0E-4566-A7F4-475983C54BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7CA8F1-9F0E-4566-A7F4-475983C54BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7CA8F1-9F0E-4566-A7F4-475983C54BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7CA8F1-9F0E-4566-A7F4-475983C54BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7305A12B-DE83-49F8-A79F-4FC0AC9B71BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7305A12B-DE83-49F8-A79F-4FC0AC9B71BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7305A12B-DE83-49F8-A79F-4FC0AC9B71BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7305A12B-DE83-49F8-A79F-4FC0AC9B71BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92969D97-6FFA-4EB6-ABB9-173465A24E41}
+	EndGlobalSection
+EndGlobal

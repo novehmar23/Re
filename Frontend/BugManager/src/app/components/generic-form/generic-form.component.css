@@ -1,0 +1,60 @@
+.center-screen {
+  margin-top: 1%;
+  display: inline-block;
+  min-width: 40em; 
+}
+
+.wrapper {
+  text-align: center;
+}
+
+button{
+  text-align: center ;
+  margin: auto;
+  display: block;
+}
+
+#save{
+  float: right;
+  margin-right: 1em;
+  background-color: #4caf50;
+}
+
+#save:disabled{
+  background-color:#E0E0E0;
+}
+
+#cancel{
+  float: right;
+}
+
+mat-spinner{
+  text-align: center ;
+  margin:  auto;
+  display: block;
+  float: right;
+  margin-right: 1em;
+}
+
+h2{
+  text-align: center;
+  margin-top: 5%;
+  font-weight: 0;
+}
+
+app-message{
+  text-align: left;
+}
+
+#centerFormContentDiv{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 50%;
+}
+
+#centerDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

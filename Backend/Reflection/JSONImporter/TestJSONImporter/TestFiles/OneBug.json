@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "Bug1",
+    "Description": "This is the first bug from the json",
+    "Version": "1.00",
+    "IsActive": true,
+    "ProjectId": 3,
+    "ProjectName": "The Project",
+    "CompletedById": null,
+    "Time": 100
+  }
+]

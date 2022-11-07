@@ -1,0 +1,7 @@
+<button type="submit" mat-flat-button (click)="createProject()">Create new project
+</button>
+
+
+<app-projects-table [dataSource]="dataSource" [buttonsColumns]="buttonsColumns" [buttonsActions]="buttonsActions"
+  [loading]="loading">
+</app-projects-table>

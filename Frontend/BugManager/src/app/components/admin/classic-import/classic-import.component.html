@@ -1,0 +1,17 @@
+<app-generic-form title="Import Bugs - Classic" [showCancelButton]="showCancelButton" [form]="form"
+  [infoMessage]="infoMessage" (save)="save()" [loading]="loading">
+  <p>Bug importation for xml files</p>
+
+  <form [formGroup]="form" (keydown.enter)="save()">
+    <mat-form-field class=full-width appearance="fill">
+      <mat-label>Enter path to file</mat-label>
+      <input matInput [(ngModel)]="path" formControlName="path" required
+        placeholder="Ex. C:/XMLFiles/bugimport-10-11-2021.xml">
+    </mat-form-field>
+  </form>
+  <p>For more importation formats, please go to <a title="Custom bug importation page"
+      [routerLink]="['../bug-import-custom']">Bug Import
+      Custom</a>
+  </p>
+
+</app-generic-form>

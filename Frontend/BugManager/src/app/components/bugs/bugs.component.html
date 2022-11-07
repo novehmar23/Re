@@ -1,0 +1,7 @@
+<button type="submit" mat-flat-button (click)="createBug()">Create new bug
+</button>
+
+
+<app-bugs-table [dataSource]="dataSource" [buttonsColumns]="buttonsColumns" [buttonsActions]="buttonsActions"
+  (sendBugs)="sendBugToNextTable($event)">
+</app-bugs-table>
