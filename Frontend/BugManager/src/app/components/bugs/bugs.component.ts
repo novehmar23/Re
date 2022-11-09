@@ -70,8 +70,8 @@ export class BugsComponent implements OnInit {
       'classify',
       {
         text: () => 'Classify',
-        onClick: () => {
-          this.classifyBug();
+        onClick: (b) => {
+          this.classifyBug(b);
         },
         color: () => 'warn',
       },
@@ -101,8 +101,11 @@ export class BugsComponent implements OnInit {
     });
   }
 
-  classifyBug() {
-    alert('Hola');
+  classifyBug(bug) {
+    this.router.navigate(['../bug/classify'], {
+      relativeTo: this.r,
+      queryParams: { id: String(bug.id) },
+    });
   }
 
   sendBugToNextTable(bugs) {

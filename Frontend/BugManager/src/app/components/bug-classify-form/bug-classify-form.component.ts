@@ -17,15 +17,6 @@ export class BugClassifyFormComponent implements OnInit {
 
   loading = false;
   infoMessage: InfoMessage = { error: true, text: '' };
-  bug: Bug = {
-    name: '',
-    description: '',
-    version: '',
-    time: 0,
-    projectId: 0,
-    projectName: '',
-    isActive: true,
-  };
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -48,39 +39,33 @@ export class BugClassifyFormComponent implements OnInit {
     value: '',
   };
 
-  severity: string[] = ['Crítico', 'Mayor', 'Menor', 'Leve'];
+  severity: string[] = ['Critico', 'Mayor', 'Menor', 'Leve'];
   priority: string[] = ['Inmediata', 'Alta', 'Media', 'Baja'];
+  valueType: string = '';
 
   ngOnInit(): void {
-    this.bug = this.bugService.getBug(this.route.snapshot.queryParams['id']);
-    alert(window.location.pathname.split('/')[1]);
     if (window.location.pathname.split('/')[1] == 'tester') {
       this.valueOptions = this.severity;
-      alert('a');
+      this.valueType = 'severity';
     } else if (window.location.pathname.split('/')[1] == 'admin') {
       this.valueOptions = this.priority;
-      alert('b');
+      this.valueType = 'priority';
     }
   }
 
   save() {
     this.loading = true;
-    this.bugType.name = this.name;
-    this.bugType.description = this.description;
-    this.bugType.comments = this.comments;
     this.bugType.value = this.value;
-    const id = this.route.snapshot.queryParams['id'];
-    this.bugType.id = id;
 
-    this.editBug(id);
+    this.classifyBug(this.route.snapshot.queryParams['id']);
   }
 
-  editBug(id: number) {
-    this.bugService.editBug(id, this.bug).subscribe(
+  classifyBug(id: number) {
+    this.bugService.classifyBug(id, this.bugType, this.valueType).subscribe(
       (response) => {
         this.loading = false;
         this.infoMessage.error = false;
-        this.infoMessage.text = `Bug Type to "${this.bug.name}" added successfully`;
+        this.infoMessage.text = `Bug Type added successfully`;
       },
 
       (error) => {

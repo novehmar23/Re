@@ -3,51 +3,71 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { Bug } from 'src/app/models/Bug';
 import { environment } from 'src/environments/environment';
+import { BugType } from '../models/BugType';
 import { HttpErrorHandler } from './error-handler';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BugsService {
   endpoint = `${environment.webApi_origin}/bugs`;
-  options = { headers: { 'token': '', 'path': '' } };
+  options = { headers: { token: '', path: '' } };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBugs(): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.get<Bug[]>(this.endpoint, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .get<Bug[]>(this.endpoint, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
 
   getBug(id: number): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.get<Bug>(`${this.endpoint}/${id}`, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .get<Bug>(`${this.endpoint}/${id}`, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
 
   createBug(bug: Bug): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.post(this.endpoint, bug, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .post(this.endpoint, bug, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
 
   editBug(id: number, bug: Bug): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.put(`${this.endpoint}/${id}`, bug, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .put(`${this.endpoint}/${id}`, bug, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
 
   deleteBug(id: number): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.delete(`${this.endpoint}/${id}`, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .delete(`${this.endpoint}/${id}`, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
 
   resolveBug(id: number): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.put(`${this.endpoint}/${id}/resolve`, null, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .put(`${this.endpoint}/${id}/resolve`, null, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
-
 
   unresolveBug(id: number): any {
     this.options.headers.token = localStorage.getItem('token') || '';
-    return this.http.put(`${this.endpoint}/${id}/unresolve`, null, this.options).pipe(catchError(HttpErrorHandler.handleError));
+    return this.http
+      .put(`${this.endpoint}/${id}/unresolve`, null, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
   }
 
+  classifyBug(id: number, bugType: BugType, valueType: string): any {
+    this.options.headers.token = localStorage.getItem('token') || '';
+    return this.http
+      .post(`${this.endpoint}/${id}/${valueType}`, bugType, this.options)
+      .pipe(catchError(HttpErrorHandler.handleError));
+  }
 }
