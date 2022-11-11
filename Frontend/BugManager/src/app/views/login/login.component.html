@@ -1,33 +1,31 @@
 <h2 class=mat-headline>Welcome to BugManager, please sign in or ask the Admin to create an account for you.</h2>
 <mat-card class=center-screen>
 
-  <form [formGroup]="form" (keydown.enter)="LogIn()">
+    <form [formGroup]="form" (keydown.enter)="LogIn()">
 
-    <!--Username-->
-    <p>Username</p>
-    <mat-form-field class=full-width appearance="fill">
-      <mat-label>Enter your username</mat-label>
-      <input matInput [(ngModel)]="credentials.username" formControlName="username" required>
-    </mat-form-field>
+        <!--Username-->
+        <p>Username</p>
+        <mat-form-field class=full-width appearance="fill">
+            <mat-label>Enter your username</mat-label>
+            <input matInput [(ngModel)]="credentials.username" formControlName="username" name="username" required>
+        </mat-form-field>
 
-    <br>
+        <br>
 
-    <p>Password</p>
-    <!--Password-->
-    <mat-form-field appearance="fill" class=full-width>
-      <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password" formControlName="password"
-        required>
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide">
+        <p>Password</p>
+        <!--Password-->
+        <mat-form-field appearance="fill" class=full-width>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="credentials.password" formControlName="password" name="password" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-    </mat-form-field>
-  </form>
+        </mat-form-field>
+    </form>
 
-  <button type="submit" mat-flat-button color="primary" disabled="{{!form.valid || loading}}" (click)="LogIn()">Log In
+    <button type="submit" name="logInButton" mat-flat-button color="primary" disabled="{{!form.valid || loading}}" (click)="LogIn()">Log In
   </button>
-  <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
-  <app-message [message]="errorMessage"></app-message>
+    <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+    <app-message [message]="errorMessage"></app-message>
 
 </mat-card>

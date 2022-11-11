@@ -4,25 +4,25 @@
 
         <mat-form-field class=full-width appearance="fill">
             <mat-label>Enter name</mat-label>
-            <input maxlength="10" matInput [(ngModel)]="bugType.name" formControlName="name" required placeholder="Ex. wrong ui.">
+            <input maxlength="10" matInput [(ngModel)]="bugType.name" formControlName="name" name="name" required placeholder="Ex. wrong ui.">
             <mat-hint align="end">{{bugType.name.length}} / 10</mat-hint>
         </mat-form-field>
 
         <mat-form-field class=full-width appearance="fill">
             <mat-label>Enter description</mat-label>
-            <input maxlength="40" matInput [(ngModel)]="bugType.description" formControlName="description" required placeholder="Ex. the colors are incorrect.">
+            <input maxlength="40" matInput [(ngModel)]="bugType.description" formControlName="description" name="description" required placeholder="Ex. the colors are incorrect.">
             <mat-hint align="end">{{bugType.description.length}} / 40</mat-hint>
         </mat-form-field>
 
         <mat-form-field class=full-width appearance="fill">
             <mat-label>Enter comments</mat-label>
-            <input maxlength="200" matInput [(ngModel)]="bugType.comments" formControlName="comments" required placeholder="Ex. ask to the ui managger to the exact color">
+            <input maxlength="200" matInput [(ngModel)]="bugType.comments" formControlName="comments" name="comments" required placeholder="Ex. ask to the ui managger to the exact color">
             <mat-hint align="end">{{bugType.comments.length}} / 200</mat-hint>
         </mat-form-field>
 
         <mat-form-field appearance="fill" class=full-width>
             <mat-label>Value</mat-label>
-            <mat-select [(value)]="value" formControlName="value" required>
+            <mat-select [(value)]="value" formControlName="value" name="value" required>
                 <mat-option [value]="value" *ngFor="let value of valueOptions">{{ value }}</mat-option>
             </mat-select>
         </mat-form-field>
