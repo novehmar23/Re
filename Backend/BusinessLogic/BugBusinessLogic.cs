@@ -40,7 +40,7 @@ namespace BusinessLogic
 
         public BugDTO Add(BugDTO bugDTO)
         {
-            
+
             bugDTO.Type = null;
             Bug bug = bugDTO.ConvertToDomain();
             bug.Validate();

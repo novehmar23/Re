@@ -1,12 +1,9 @@
 ﻿using BusinessLogic;
-using BusinessLogicInterfaces;
 using Domain;
 using DTO;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RepositoryInterfaces;
-using System;
 using TechTalk.SpecFlow;
 using WebApi.Controllers;
 
@@ -29,19 +26,19 @@ namespace SpecflowTests.Specs.Steps
         {
             name = "usuario no unico";
         }
-        
+
         [Given(@"the description is acepta más de un usuario con el mismo nombre")]
         public void GivenTheDescriptionIsAceptaMasDeUnUsuarioConElMismoNombre()
         {
             description = "acepta más de un usuario con el mismo nombre";
         }
-        
+
         [Given(@"the comments is solo esta único el id")]
         public void GivenTheCommentsIsSoloEstaUnicoElId()
         {
             comments = "solo esta único el id";
         }
-        
+
         [Given(@"the value is Alta")]
         public void GivenTheValueIsAlta()
         {
@@ -100,7 +97,7 @@ namespace SpecflowTests.Specs.Steps
 
             var repositoryMock = new Mock<IBugDataAccess>(MockBehavior.Strict);
             repositoryMock.Setup(b => b.GetById(1)).Returns(bugABuscar);
-            repositoryMock.Setup(b => b.Update(1,bugActualizado)).Returns(bugABuscar);
+            repositoryMock.Setup(b => b.Update(1, bugActualizado)).Returns(bugABuscar);
 
             var bugLogic = new BugBusinessLogic(repositoryMock.Object);
             BugController bugController = new BugController(bugLogic);
@@ -117,7 +114,7 @@ namespace SpecflowTests.Specs.Steps
             }
 
         }
-        
+
         [Then(@"Expect Code (.*)")]
         public void ThenExpectCode(int p0)
         {

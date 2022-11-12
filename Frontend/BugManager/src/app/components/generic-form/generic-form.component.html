@@ -1,26 +1,25 @@
 <div class="wrapper">
-  <mat-card class=center-screen>
-    <h2>{{title}}</h2>
-    <mat-divider></mat-divider>
-    <br>
-    <div id="centerDiv">
-      <div id="centerFormContentDiv">
-        <ng-content></ng-content>
-      </div>
-    </div>
-    <mat-divider></mat-divider>
-    <br>
+    <mat-card class=center-screen>
+        <h2>{{title}}</h2>
+        <mat-divider></mat-divider>
+        <br>
+        <div id="centerDiv">
+            <div id="centerFormContentDiv">
+                <ng-content></ng-content>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <br>
 
-    <button *ngIf="showCancelButton" id="cancel" mat-flat-button color="warn" disabled="{{loading}}"
-      (click)="cancel()">Cancel
-    </button>
-    <button id="save" mat-flat-button color="primary" disabled="{{ !form.valid || loading}}" (click)="save.emit()">Save
-    </button>
+        <button *ngIf="showCancelButton" id="cancel" mat-flat-button color="warn" disabled="{{loading}}" (click)="cancel()">Cancel
+        </button>
+        <button id="save" name="save" mat-flat-button color="primary" disabled="{{ !form.valid || loading}}" (click)="save.emit()">Save
+        </button>
 
 
-    <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
-    <br>
-    <app-message [message]="infoMessage"></app-message>
+        <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+        <br>
+        <app-message id={{infoMessage.text}} [message]="infoMessage"></app-message>
 
-  </mat-card>
+    </mat-card>
 </div>
